@@ -13,9 +13,9 @@ namespace Site.MVC.Controllers
         {
             string accessToken = await HttpContext.GetTokenAsync("access_token");
 
-            ViewBag.RetornoApiClientes = await Integracao.ChamarApi("https://localhost:44309/", accessToken);
-            ViewBag.RetornoApiProdutos = await Integracao.ChamarApi("https://localhost:44356/", accessToken);
-            ViewBag.RetornoApiVendas = await Integracao.ChamarApi("https://localhost:44334/", accessToken);
+            ViewBag.RetornoApiClientes = await Integracao.ChamarApi("https://localhost:8005/", accessToken);
+            ViewBag.RetornoApiProdutos = await Integracao.ChamarApi("https://localhost:8007/", accessToken);
+            ViewBag.RetornoApiVendas = await Integracao.ChamarApi("https://localhost:8009/", accessToken);
             return View();
         }
     }

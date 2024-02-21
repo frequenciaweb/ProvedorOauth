@@ -1,0 +1,48 @@
+version: '3.4'
+
+services:
+  provedor:
+    image: ${DOCKER_REGISTRY-}provedor
+    build:
+      context: .
+      dockerfile: Provedor/Dockerfile
+    ports:
+       - 8002:80
+       - 8003:443  
+
+  api.clientes:
+    image: ${DOCKER_REGISTRY-}apiclientes
+    build:
+      context: .
+      dockerfile: Api.Clientes/Dockerfile
+    ports:
+       - 8004:80
+       - 8005:443  
+
+  api.produtos:
+    image: ${DOCKER_REGISTRY-}apiprodutos
+    build:
+      context: .
+      dockerfile: Api.Produtos/Dockerfile
+    ports:
+       - 8006:80
+       - 8007:443  
+
+  api.vendas:
+    image: ${DOCKER_REGISTRY-}apivendas
+    build:
+      context: .
+      dockerfile: Api.Vendas/Dockerfile
+    ports:
+       - 8008:80
+       - 8009:443  
+
+  site.mvc:
+    image: ${DOCKER_REGISTRY-}sitemvc
+    build:
+      context: .
+      dockerfile: Site.MVC/Dockerfile
+    ports:
+       - 8010:80
+       - 8011:443  
+
