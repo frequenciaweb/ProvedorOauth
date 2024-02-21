@@ -2,6 +2,7 @@ version: '3.4'
 
 services:
   provedor:
+    container_name: provedor
     image: ${DOCKER_REGISTRY-}provedor
     build:
       context: .
@@ -11,6 +12,7 @@ services:
        - 8003:443  
 
   api.clientes:
+    container_name: api_clientes
     image: ${DOCKER_REGISTRY-}apiclientes
     build:
       context: .
@@ -20,6 +22,7 @@ services:
        - 8005:443  
 
   api.produtos:
+    container_name: api_produtos
     image: ${DOCKER_REGISTRY-}apiprodutos
     build:
       context: .
@@ -29,6 +32,7 @@ services:
        - 8007:443  
 
   api.vendas:
+    container_name: api_vendas
     image: ${DOCKER_REGISTRY-}apivendas
     build:
       context: .
@@ -38,6 +42,7 @@ services:
        - 8009:443  
 
   site.mvc:
+    container_name: site_vendas
     image: ${DOCKER_REGISTRY-}sitemvc
     build:
       context: .
@@ -45,4 +50,8 @@ services:
     ports:
        - 8010:80
        - 8011:443  
+    environment:
+      api_vendas: test-pytest 
+      api_produtos: test-pytest 
+      api_clientes: test-pytest 
 
